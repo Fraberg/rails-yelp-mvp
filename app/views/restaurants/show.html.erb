@@ -1,0 +1,16 @@
+<h1><%= @restaurant.name.capitalize %></h1>
+<p><%= @restaurant.address.capitalize %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+<p>------------</p>
+<p>Review(s):</p>
+
+<% @restaurant.reviews.each do |review| %>
+  <p><%= review.rating %>: <%= review.content %></p>
+<% end %>
+
+<p><i class="fa fa-undo" aria-hidden="true"></i><%= link_to " Back to list", restaurants_path %></p>
+
+<p><i class="fa fa-pencil" aria-hidden="true"></i></i><%= link_to " Edit this restaurant", edit_restaurant_path %></p>
+
+<p><i class="fa fa-plus" aria-hidden="true"><%= link_to " Add a review", new_restaurant_review_path(@restaurant) %></i></p>
